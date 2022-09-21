@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -5,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Genre(models.Model):
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
 
 
 class Movie(models.Model):
