@@ -19,7 +19,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=255)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
     numberInStock = models.PositiveSmallIntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(100)]
+        validators=[MinValueValidator(0), MaxValueValidator(100)]
     )
     dailyRentalRate = models.DecimalField(
         max_digits=3,
