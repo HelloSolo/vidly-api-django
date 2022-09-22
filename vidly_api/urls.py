@@ -25,4 +25,5 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("playground/", include("playground.urls")),
+    path("api/", include("movie.urls")),
 ]
