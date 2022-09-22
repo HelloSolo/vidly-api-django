@@ -9,10 +9,19 @@ from .models import Movie, Genre
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
+    actions = ["clear_stock"]
     list_display = ["title", "genre", "numberInStock", "dailyRentalRate"]
     list_editable = ["numberInStock", "dailyRentalRate"]
+    list_filter = ["genre"]
     list_per_page = 10
+    list_select_related = ["genre"]
     ordering = ["title"]
+    search_fields = ["title"]
+
+    @admin.action(description="Clear Stock")
+    def clear_stock(self, request, queryset):
+        update_count = queryset.update(numberInStock=0)
+        self.message_user(request, f"{update_count} movies has been updated")
 
 
 @admin.register(Genre)
