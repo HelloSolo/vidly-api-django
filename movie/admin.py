@@ -10,6 +10,7 @@ from .models import Movie, Genre
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     actions = ["clear_stock"]
+    autocomplete_fields = ["genre"]
     list_display = ["title", "genre", "numberInStock", "dailyRentalRate"]
     list_editable = ["numberInStock", "dailyRentalRate"]
     list_filter = ["genre"]
@@ -27,6 +28,7 @@ class MovieAdmin(admin.ModelAdmin):
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     list_display = ["name", "movie_count"]
+    search_fields = ["name"]
 
     @admin.display(ordering="movie_count")
     def movie_count(self, genre):
