@@ -1,17 +1,15 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from .models import Movie, Genre
 from .serializers import MovieSerializer, GenreSerializer
+from .filter import MovieFilter
 
 
 class MovieViewSet(ModelViewSet):
+    queryset = Movie.objects.select_related("genre").all()
     serializer_class = MovieSerializer
-
-    def get_queryset(self):
-        queryset = Movie.objects.all()
-        genre_id = self.request.query_params.get("genre_id")
-        if genre_id != None:
-            queryset = Movie.objects.filter(genre_id=genre_id)
-        return queryset
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = MovieFilter
 
 
 class GenreViewSet(ReadOnlyModelViewSet):
