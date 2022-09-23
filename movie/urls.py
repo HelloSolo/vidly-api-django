@@ -1,8 +1,13 @@
-from django.urls import path
-from .views import genre_detail, MovieList, MovieDetail
+from xml.etree.ElementInclude import include
+from django.urls import path, include
+from .views import GenreViewSet, MovieViewSet
+from rest_framework.routers import DefaultRouter
+
+
+router = DefaultRouter()
+router.register("movie", MovieViewSet)
+router.register("genre", GenreViewSet)
 
 urlpatterns = [
-    path("movie/", MovieList.as_view()),
-    path("movie/<int:pk>/", MovieDetail.as_view()),
-    path("genre/<int:pk>/", genre_detail, name="genre-detail"),
+    path("", include(router.urls)),
 ]
