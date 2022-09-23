@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register("movie", MovieViewSet)
+router.register("movie", MovieViewSet, basename="movie")
 router.register("genre", GenreViewSet)
 
 urlpatterns = [
