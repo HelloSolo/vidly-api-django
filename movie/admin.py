@@ -32,7 +32,7 @@ class GenreAdmin(admin.ModelAdmin):
 
     @admin.display(ordering="movie_count")
     def movie_count(self, genre):
-        url = f'{reverse("admin:movie_movie_changelist")}?{urlencode({"genre__id": genre.id})}'
+        url = f'{reverse("admin:movie_movie_changelist")}?{urlencode({"genre__id": genre._id})}'
         return format_html("<a href={}>{}</a>", url, genre.movie_count)
 
     def get_queryset(self, request):
