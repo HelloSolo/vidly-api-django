@@ -1,7 +1,10 @@
+DROP DATABASE vidly;
+CREATE DATABASE vidly;
+
 insert into movie_genre (name)
 values ("Action"),("Thriller"),("Romance"), ("Comedy");
 
-insert into movie_genre (title, genre, numberInStock, dailyRentalRate)
+insert into movie_movie (title, genre_id, numberInStock, dailyRentalRate)
 values 	("Airplanes", 1, 10, 3.0),
 		("Die Hard", 1, 20, 7.0),
         ("Gone Girl", 2, 7, 4.0),
