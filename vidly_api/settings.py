@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_filters",
+    "corsheaders",
     "debug_toolbar",
     "rest_framework",
     "playground",
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "vidly_api.urls"
@@ -139,3 +141,5 @@ INTERNAL_IPS = ["127.0.0.1"]
 AUTH_USER_MODEL = "core.User"
 
 REST_FRAMEWORK = {"COERCE_DECIMAL_TO_STRING": False}
+
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
