@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -55,7 +56,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "vidly_api.urls"
@@ -138,8 +138,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Custom Configurations
 INTERNAL_IPS = ["127.0.0.1"]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+
 AUTH_USER_MODEL = "core.User"
 
 REST_FRAMEWORK = {"COERCE_DECIMAL_TO_STRING": False}
-
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
