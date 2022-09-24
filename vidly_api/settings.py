@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "playground",
     "movie",
     "core",
+    "liked",
 ]
 
 MIDDLEWARE = [
