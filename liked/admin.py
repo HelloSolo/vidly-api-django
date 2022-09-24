@@ -1,3 +1,7 @@
 from django.contrib import admin
+from liked.models import LikedItem
 
-# Register your models here.
+
+@admin.register(LikedItem)
+class LikedItemAdmin(admin.ModelAdmin):
+    list_display = ["_id", "user_id", "content_object"]
