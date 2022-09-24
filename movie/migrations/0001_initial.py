@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name="Genre",
             fields=[
                 (
-                    "id",
+                    "_id",
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             name="Movie",
             fields=[
                 (
-                    "id",
+                    "_id",
                     models.BigAutoField(
                         auto_created=True,
                         primary_key=True,
