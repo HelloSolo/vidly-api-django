@@ -6,6 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Genre(models.Model):
+    _id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
@@ -16,6 +17,7 @@ class Genre(models.Model):
 
 
 class Movie(models.Model):
+    _id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name="movie")
     numberInStock = models.PositiveSmallIntegerField(
