@@ -3,4 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    pass
+    email = models.EmailField(unique=True)
+
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.last_name}"
