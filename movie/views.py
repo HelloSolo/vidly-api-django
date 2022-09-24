@@ -3,7 +3,6 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from .models import Movie, Genre
 from .serializers import AddMovieSerializer, MovieSerializer, GenreSerializer
-from .paginate import DefaultPagination
 from .filter import MovieFilter
 
 
@@ -12,7 +11,6 @@ class MovieViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = MovieFilter
     ordering_fields = ["dailyRentalRate", "numberInStock"]
-    pagination_class = DefaultPagination
     search_fields = ["title"]
 
     def get_serializer_class(self):
