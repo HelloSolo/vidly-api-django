@@ -24,7 +24,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
     path("api/", include("movie.urls")),
-    path("api/", include("core.urls")),
     path("auth/", include("djoser.urls")),
     path("auth/", include("djoser.urls.jwt")),
     path("__debug__/", include("debug_toolbar.urls")),
