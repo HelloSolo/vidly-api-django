@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "debug_toolbar",
     "rest_framework",
+    "djoser",
     "playground",
     "movie",
     "core",
@@ -147,4 +148,13 @@ CORS_ALLOWED_ORIGINS = [
 
 AUTH_USER_MODEL = "core.User"
 
-REST_FRAMEWORK = {"COERCE_DECIMAL_TO_STRING": False}
+REST_FRAMEWORK = {
+    "COERCE_DECIMAL_TO_STRING": False,
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+SIMPLE_JWT = {
+    "AUTH_HEADER_TYPES": ("JWT",),
+}

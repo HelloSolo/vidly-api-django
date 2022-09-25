@@ -23,7 +23,9 @@ admin.site.index_title = "Admin"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
+    path("api/", include("movie.urls")),
+    path("auth/", include("djoser.urls")),
+    path("auth/", include("djoser.urls.jwt")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("playground/", include("playground.urls")),
-    path("api/", include("movie.urls")),
 ]
