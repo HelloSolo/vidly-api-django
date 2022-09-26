@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from unicodedata import name
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -34,3 +35,8 @@ class Movie(models.Model):
 
     class Meta:
         ordering = ["title"]
+
+
+class MoviePoster(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="movie/images")
