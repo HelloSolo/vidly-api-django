@@ -1,5 +1,6 @@
+from dataclasses import fields
 from rest_framework import serializers
-from .models import Genre, Movie
+from .models import Genre, Movie, MoviePoster
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -20,3 +21,9 @@ class AddMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
         fields = ["title", "genre", "numberInStock", "dailyRentalRate"]
+
+
+class MoviePosterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MoviePoster
+        fields = ["id", "image"]
