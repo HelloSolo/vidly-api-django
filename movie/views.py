@@ -17,7 +17,7 @@ class MovieViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = MovieFilter
     pagination_class = DefaultPagination
-    ordering_fields = ["imbdRating", "numberInStock"]
+    ordering_fields = ["imbdRating"]
     search_fields = ["title"]
 
     def get_serializer_class(self):

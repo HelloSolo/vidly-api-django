@@ -21,9 +21,6 @@ class Movie(models.Model):
     _id = models.BigAutoField(primary_key=True)
     title = models.CharField(max_length=255)
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name="movie")
-    numberInStock = models.PositiveSmallIntegerField(
-        validators=[MinValueValidator(0), MaxValueValidator(100)]
-    )
     imdbRating = models.DecimalField(
         max_digits=3,
         decimal_places=2,
