@@ -26,6 +26,7 @@ class Movie(models.Model):
         decimal_places=2,
         validators=[MinValueValidator(1), MaxValueValidator(10)],
     )
+    description = models.CharField(max_length=1024, null=True)
 
     def __str__(self) -> str:
         return self.title

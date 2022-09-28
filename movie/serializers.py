@@ -25,10 +25,10 @@ class MovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ["_id", "title", "genre", "imdbRating", "images"]
+        fields = ["_id", "title", "genre", "imdbRating", "description", "images"]
 
 
 class AddMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ["title", "genre", "imdbRating"]
+        fields = ["title", "genre", "imdbRating", "description"]
