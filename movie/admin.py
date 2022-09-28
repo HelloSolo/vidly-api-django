@@ -22,12 +22,12 @@ class MovieAdmin(admin.ModelAdmin):
     actions = ["clear_stock"]
     autocomplete_fields = ["genre"]
     inlines = [ImagesInline]
-    list_display = ["title", "genre", "imdbRating", "description"]
+    list_display = ["title", "genre", "imdbRating", "description", "releaseDate"]
     list_editable = ["imdbRating"]
     list_filter = ["genre"]
     list_per_page = 10
     list_select_related = ["genre"]
-    ordering = ["title"]
+    ordering = ["title", "releaseDate"]
     search_fields = ["title"]
 
     @admin.action(description="Clear Stock")

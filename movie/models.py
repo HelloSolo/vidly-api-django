@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from platform import release
 from unicodedata import name
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -27,6 +28,7 @@ class Movie(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(10)],
     )
     description = models.CharField(max_length=1024, null=True)
+    releaseDate = models.DateField(null=True)
 
     def __str__(self) -> str:
         return self.title
