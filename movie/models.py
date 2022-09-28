@@ -24,7 +24,7 @@ class Movie(models.Model):
     numberInStock = models.PositiveSmallIntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(100)]
     )
-    dailyRentalRate = models.DecimalField(
+    imdbRating = models.DecimalField(
         max_digits=3,
         decimal_places=2,
         validators=[MinValueValidator(1), MaxValueValidator(10)],

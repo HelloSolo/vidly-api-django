@@ -22,8 +22,8 @@ class MovieAdmin(admin.ModelAdmin):
     actions = ["clear_stock"]
     autocomplete_fields = ["genre"]
     inlines = [ImagesInline]
-    list_display = ["title", "genre", "numberInStock", "dailyRentalRate"]
-    list_editable = ["numberInStock", "dailyRentalRate"]
+    list_display = ["title", "genre", "numberInStock", "imdbRating"]
+    list_editable = ["numberInStock", "imdbRating"]
     list_filter = ["genre"]
     list_per_page = 10
     list_select_related = ["genre"]
