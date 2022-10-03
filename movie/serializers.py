@@ -41,7 +41,7 @@ class AddMovieSerializer(serializers.ModelSerializer):
         fields = ["title", "genre", "imdbRating", "description", "releaseDate"]
 
 
-class PromotionsSerializer(serializers.ModelSerializer):
+class PromotionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Promotion
         fields = ["movie_id", "images"]

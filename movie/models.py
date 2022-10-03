@@ -1,5 +1,3 @@
-from distutils.command.upload import upload
-from email.mime import image
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
