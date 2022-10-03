@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -27,6 +28,7 @@ class Movie(models.Model):
     )
     description = models.CharField(max_length=1024, null=True)
     releaseDate = models.DateField(null=True)
+    promoted = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.title
@@ -55,8 +57,3 @@ class Customer(models.Model):
         choices=SUBSCRIPTION_TYPE_CHOICES,
         default=BRONZE,
     )
-
-
-# class Promotion(models.Model):
-#     movie = models.OneToOneField(Movie, on_delete=models.CASCADE)
-#     images = models.ImageField(upload_to="promotion/images")

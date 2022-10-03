@@ -32,6 +32,7 @@ class MovieSerializer(serializers.ModelSerializer):
             "description",
             "releaseDate",
             "images",
+            "promoted",
         ]
 
 
