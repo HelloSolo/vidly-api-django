@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Customer, Genre, Movie, MoviePoster, Promotion
+from .models import Customer, Genre, Movie, MoviePoster
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -41,10 +41,10 @@ class AddMovieSerializer(serializers.ModelSerializer):
         fields = ["title", "genre", "imdbRating", "description", "releaseDate"]
 
 
-class PromotionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Promotion
-        fields = ["movie_id", "images"]
+# class PromotionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Promotion
+#         fields = ["movie_id", "images"]
 
 
 class CustomerSerializer(serializers.ModelSerializer):

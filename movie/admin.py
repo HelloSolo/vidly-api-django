@@ -30,11 +30,6 @@ class MovieAdmin(admin.ModelAdmin):
     ordering = ["title", "releaseDate"]
     search_fields = ["title"]
 
-    @admin.action(description="Clear Stock")
-    def clear_stock(self, request, queryset):
-        update_count = queryset.update(numberInStock=0)
-        self.message_user(request, f"{update_count} movies has been updated")
-
     class Media:
         css = {"all": ["movie/styles.css"]}
 
@@ -51,3 +46,17 @@ class GenreAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         return super().get_queryset(request).annotate(movie_count=Count("movie"))
+
+
+# @admin.register(Promotion)
+# class PromotionAdmin(admin.ModelAdmin):
+#     list_display = ["movie", "thumbnail"]
+#     autocomplete_fields = ["movie"]
+
+#     def thumbnail(self, instance):
+#         if instance.image.name != "":
+#             return format_html(f'<img src="{instance.image.url}" class="thumbnail">')
+#         return ""
+
+#     class Media:
+#         css = {"all": ["movie/styles.css"]}
