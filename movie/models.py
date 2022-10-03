@@ -59,6 +59,6 @@ class Customer(models.Model):
     )
 
 
-class Promotions(models.Model):
+class Promotion(models.Model):
     movie = models.OneToOneField(Movie, on_delete=models.CASCADE)
     images = models.ImageField(upload_to="promotion/images")
