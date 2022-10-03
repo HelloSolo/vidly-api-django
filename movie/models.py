@@ -60,5 +60,5 @@ class Customer(models.Model):
 
 
 class Promotions(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    movie = models.OneToOneField(Movie, on_delete=models.CASCADE)
     images = models.ImageField(upload_to="promotion/images")
