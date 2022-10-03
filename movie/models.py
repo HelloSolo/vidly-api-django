@@ -1,8 +1,6 @@
-from distutils.command.upload import upload
-from platform import release
-from unicodedata import name
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.conf import settings
 
 # Create your models here.
 
@@ -40,3 +38,20 @@ class Movie(models.Model):
 class MoviePoster(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="movie/images")
+
+
+class Customer(models.Model):
+    SILVER = "SL"
+    GOLD = "GD"
+    BRONZE = "BR"
+
+    SUBSCRIPTION_TYPE_CHOICES = [(SILVER, "silver"), (GOLD, "gold"), (BRONZE, "bronze")]
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    watchList = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="movie")
+    subscriptionStatus = models.BooleanField(default="false")
+    subscriptionType = models.CharField(
+        max_length=2,
+        choices=SUBSCRIPTION_TYPE_CHOICES,
+        default=BRONZE,
+    )
