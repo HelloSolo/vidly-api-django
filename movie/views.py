@@ -1,12 +1,14 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
-from .models import Movie, Genre, MoviePoster
+from .models import Movie, Genre, MoviePoster, Promotion
 from .serializers import (
     AddMovieSerializer,
+    CustomerSerializer,
     MoviePosterSerializer,
     MovieSerializer,
     GenreSerializer,
+    PromotionSerializer,
 )
 from .filter import MovieFilter
 from .paginate import DefaultPagination
@@ -44,3 +46,13 @@ class MoviePosterViewSet(ModelViewSet):
 class GenreViewSet(ReadOnlyModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+
+
+class PromotionViewSet(ModelViewSet):
+    queryset = Promotion.objects.select_related("movie").all()
+    serializer_class = PromotionSerializer
+
+
+class CustomerViewSet(ModelViewSet):
+    queryset = Promotion.objects.select_related("user").all()
+    serializer_class = CustomerSerializer
