@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.db.models import Count
 from django.urls import reverse
 from django.utils.html import format_html, urlencode
-from .models import Movie, Genre, MoviePoster
+from .models import Customer, Movie, Genre, MoviePoster, WatchList
+from pprint import pprint
 
 # Register your models here.
 
@@ -55,15 +56,13 @@ class GenreAdmin(admin.ModelAdmin):
         return super().get_queryset(request).annotate(movie_count=Count("movie"))
 
 
-# @admin.register(Promotion)
-# class PromotionAdmin(admin.ModelAdmin):
-#     list_display = ["movie", "thumbnail"]
-#     autocomplete_fields = ["movie"]
+@admin.register(Customer)
+class Customer(admin.ModelAdmin):
+    list_display = ["user", "subscriptionType"]
 
-#     def thumbnail(self, instance):
-#         if instance.image.name != "":
-#             return format_html(f'<img src="{instance.image.url}" class="thumbnail">')
-#         return ""
 
-#     class Media:
-#         css = {"all": ["movie/styles.css"]}
+@admin.register(WatchList)
+class WatchList(admin.ModelAdmin):
+    list_display = ["user", "watchList"]
+
+    # Comeback to edit how ojects are saved in this model
