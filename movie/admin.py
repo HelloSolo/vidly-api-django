@@ -63,6 +63,6 @@ class Customer(admin.ModelAdmin):
 
 @admin.register(WatchList)
 class WatchList(admin.ModelAdmin):
-    list_display = ["user", "watchList"]
+    list_display = ["user", "movie"]
 
     # Comeback to edit how ojects are saved in this model

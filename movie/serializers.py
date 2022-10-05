@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Customer, Genre, Movie, MoviePoster
+from .models import Customer, Genre, Movie, MoviePoster, WatchList
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -46,3 +46,9 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ["user_id", "subscriptionType"]
+
+
+class WatchListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WatchList
+        fields = ["user_id", "movie"]
