@@ -43,19 +43,24 @@ class MoviePoster(models.Model):
 
 
 class Customer(models.Model):
-    SILVER = "SL"
     GOLD = "GD"
+    SILVER = "SL"
     BRONZE = "BR"
+    IRON = "IR"
 
-    SUBSCRIPTION_TYPE_CHOICES = [(SILVER, "silver"), (GOLD, "gold"), (BRONZE, "bronze")]
+    SUBSCRIPTION_TYPE_CHOICES = [
+        (SILVER, "silver"),
+        (GOLD, "gold"),
+        (BRONZE, "bronze"),
+        (IRON, "iron"),
+    ]
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     watchList = models.ForeignKey(
         Movie, on_delete=models.CASCADE, related_name="movie", null=True
     )
-    subscriptionStatus = models.BooleanField(default="false")
     subscriptionType = models.CharField(
         max_length=2,
         choices=SUBSCRIPTION_TYPE_CHOICES,
-        default=BRONZE,
+        default=IRON,
     )
