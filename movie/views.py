@@ -1,11 +1,13 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet, GenericViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
+from .filter import MovieFilter
 from .models import Customer, Movie, Genre, MoviePoster, WatchList
+from .paginate import DefaultPagination
+from .permissions import Is_AdminUserOrReadOnly
 from .serializers import (
     AddMovieSerializer,
     AddWatchListSerializer,
@@ -15,8 +17,6 @@ from .serializers import (
     GenreSerializer,
     WatchListSerializer,
 )
-from .filter import MovieFilter
-from .paginate import DefaultPagination
 
 
 class MovieViewSet(ModelViewSet):
@@ -24,6 +24,7 @@ class MovieViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = MovieFilter
     pagination_class = DefaultPagination
+    permission_classes = [Is_AdminUserOrReadOnly]
     ordering_fields = ["imbdRating", "releaseDate"]
     search_fields = ["title"]
 
@@ -53,14 +54,12 @@ class GenreViewSet(ReadOnlyModelViewSet):
     serializer_class = GenreSerializer
 
 
-class CustomerViewSet(
-    CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet
-):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser]
 
-    @action(detail=False, methods=["GET", "PUT"])
+    @action(detail=False, methods=["GET", "PUT"], permission_classes=[IsAuthenticated])
     def me(self, request):
         (customer, created) = Customer.objects.get(user_id=request.user.id)
         if request.method == "GET":
