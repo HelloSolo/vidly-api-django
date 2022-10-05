@@ -7,6 +7,7 @@ from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateMo
 from .models import Customer, Movie, Genre, MoviePoster, WatchList
 from .serializers import (
     AddMovieSerializer,
+    AddWatchListSerializer,
     CustomerSerializer,
     MoviePosterSerializer,
     MovieSerializer,
@@ -71,9 +72,15 @@ class CustomerViewSet(
 
 
 class WatchListViewSet(ModelViewSet):
-    serializer_class = WatchListSerializer
-
     def get_queryset(self):
         return WatchList.objects.select_related("movie").filter(
             customer_id=self.kwargs["customer_pk"]
         )
+
+    def get_serializer_class(self):
+        if self.request.method == "GET":
+            return WatchListSerializer
+        return AddWatchListSerializer
+
+    def get_serializer_context(self):
+        return {"customer_id": self.kwargs["customer_pk"]}

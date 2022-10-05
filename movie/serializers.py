@@ -50,6 +50,18 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class WatchListSerializer(serializers.ModelSerializer):
+    movie = MovieSerializer()
+
+    class Meta:
+        model = WatchList
+        fields = ["movie"]
+
+
+class AddWatchListSerializer(serializers.ModelSerializer):
     class Meta:
         model = WatchList
         fields = ["customer_id", "movie"]
+
+    def create(self, validated_data):
+        customer_id = self.context["customer_id"]
+        return WatchList.objects.create(customer_id=customer_id, **validated_data)
