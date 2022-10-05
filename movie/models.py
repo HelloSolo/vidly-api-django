@@ -64,5 +64,7 @@ class Customer(models.Model):
 
 
 class WatchList(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    customer = models.ForeignKey(
+        Customer, on_delete=models.CASCADE, related_name="customer"
+    )
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
