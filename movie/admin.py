@@ -57,7 +57,7 @@ class GenreAdmin(admin.ModelAdmin):
 
 @admin.register(Customer)
 class Customer(admin.ModelAdmin):
-    list_display = ["user", "subscriptionType"]
+    list_display = ["user_id", "first_name", "subscriptionType"]
 
 
 @admin.register(WatchList)

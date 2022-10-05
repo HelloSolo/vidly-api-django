@@ -62,6 +62,9 @@ class Customer(models.Model):
         default=IRON,
     )
 
+    def first_name(self):
+        return self.user.first_name
+
 
 class WatchList(models.Model):
     customer = models.ForeignKey(
