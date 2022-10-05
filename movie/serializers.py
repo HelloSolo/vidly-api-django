@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.conf import settings
 from .models import Customer, Genre, Movie, MoviePoster, WatchList
 
 
@@ -51,4 +52,4 @@ class CustomerSerializer(serializers.ModelSerializer):
 class WatchListSerializer(serializers.ModelSerializer):
     class Meta:
         model = WatchList
-        fields = ["user_id", "movie"]
+        fields = ["customer_id", "movie"]

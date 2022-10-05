@@ -3,7 +3,6 @@ from django.db.models import Count
 from django.urls import reverse
 from django.utils.html import format_html, urlencode
 from .models import Customer, Movie, Genre, MoviePoster, WatchList
-from pprint import pprint
 
 # Register your models here.
 
@@ -63,6 +62,6 @@ class Customer(admin.ModelAdmin):
 
 @admin.register(WatchList)
 class WatchList(admin.ModelAdmin):
-    list_display = ["user", "movie"]
+    list_display = ["customer_id", "movie"]
 
     # Comeback to edit how ojects are saved in this model
