@@ -47,11 +47,6 @@ class GenreViewSet(ReadOnlyModelViewSet):
     serializer_class = GenreSerializer
 
 
-# class PromotionViewSet(ModelViewSet):
-#     queryset = Promotion.objects.select_related("movie").all()
-#     serializer_class = PromotionSerializer
-
-
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.select_related("user").all()
     serializer_class = CustomerSerializer
