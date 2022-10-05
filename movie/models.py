@@ -56,11 +56,13 @@ class Customer(models.Model):
     ]
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    watchList = models.ForeignKey(
-        Movie, on_delete=models.CASCADE, related_name="movie", null=True
-    )
     subscriptionType = models.CharField(
         max_length=2,
         choices=SUBSCRIPTION_TYPE_CHOICES,
         default=IRON,
     )
+
+
+class WatchList(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    watchList = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
