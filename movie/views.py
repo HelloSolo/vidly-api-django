@@ -10,12 +10,12 @@ from .paginate import DefaultPagination
 from .permissions import Is_AdminUserOrReadOnly
 from .serializers import (
     AddMovieSerializer,
-    AddWatchListSerializer,
     CustomerSerializer,
     MoviePosterSerializer,
     MovieSerializer,
     GenreSerializer,
     WatchListSerializer,
+    AddWatchListSerializer,
 )
 
 
@@ -61,7 +61,7 @@ class CustomerViewSet(ModelViewSet):
 
     @action(detail=False, methods=["GET", "PUT"], permission_classes=[IsAuthenticated])
     def me(self, request):
-        (customer, created) = Customer.objects.get(user_id=request.user.id)
+        customer = Customer.objects.get(user_id=request.user.id)
         if request.method == "GET":
             serializer = CustomerSerializer(customer)
             return Response(serializer.data)
@@ -77,7 +77,7 @@ class WatchListViewSet(ModelViewSet):
 
     def get_queryset(self):
         return WatchList.objects.select_related("movie").filter(
-            customer_id=self.kwargs["customer_pk"]
+            user_id=self.request.user.id
         )
 
     def get_serializer_class(self):
@@ -86,4 +86,4 @@ class WatchListViewSet(ModelViewSet):
         return AddWatchListSerializer
 
     def get_serializer_context(self):
-        return {"customer_id": self.kwargs["customer_pk"]}
+        return {"user_id": self.request.user.id}

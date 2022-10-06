@@ -62,6 +62,7 @@ class Customer(admin.ModelAdmin):
 
 @admin.register(WatchList)
 class WatchList(admin.ModelAdmin):
-    list_display = ["customer_id", "movie"]
+    list_display = ["user_id", "user", "movie"]
 
-    # Comeback to edit how ojects are saved in this model
+
+# Comeback to edit how ojects are saved in this model
