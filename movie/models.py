@@ -45,20 +45,20 @@ class Customer(models.Model):
     GOLD = "GD"
     SILVER = "SL"
     BRONZE = "BR"
-    IRON = "IR"
+    FREE = "FR"
 
     SUBSCRIPTION_TYPE_CHOICES = [
         (SILVER, "silver"),
         (GOLD, "gold"),
         (BRONZE, "bronze"),
-        (IRON, "iron"),
+        (FREE, "free"),
     ]
 
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     subscriptionType = models.CharField(
         max_length=2,
         choices=SUBSCRIPTION_TYPE_CHOICES,
-        default=IRON,
+        default=FREE,
     )
 
     def first_name(self):
