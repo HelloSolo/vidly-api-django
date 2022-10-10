@@ -50,11 +50,9 @@ class CustomerSerializer(serializers.ModelSerializer):
 
 
 class WatchListSerializer(serializers.ModelSerializer):
-    movie = MovieSerializer()
-
     class Meta:
         model = WatchList
-        fields = ["movie"]
+        fields = ["id", "movie"]
 
 
 class AddWatchListSerializer(serializers.ModelSerializer):
