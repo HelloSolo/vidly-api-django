@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import Count
 from django.urls import reverse
 from django.utils.html import format_html, urlencode
-from .models import Customer, Movie, Genre, MoviePoster, WatchList
+from .models import Customer, Movie, Genre, MoviePoster, WatchList, SubcriptionType
 
 # Register your models here.
 
@@ -56,12 +56,17 @@ class GenreAdmin(admin.ModelAdmin):
 
 
 @admin.register(Customer)
-class Customer(admin.ModelAdmin):
-    list_display = ["user_id", "first_name", "subscriptionType"]
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ["user_id", "first_name", "subscription"]
+
+
+@admin.register(SubcriptionType)
+class SubcriptionTypeAdmin(admin.ModelAdmin):
+    list_display = ["plan", "monthly_price", "video_quality", "resolution", "devices"]
 
 
 @admin.register(WatchList)
-class WatchList(admin.ModelAdmin):
+class WatchListAdmin(admin.ModelAdmin):
     list_display = ["user_id", "user", "movie"]
 
 

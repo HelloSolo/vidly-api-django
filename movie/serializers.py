@@ -1,6 +1,8 @@
+from dataclasses import fields
+from random import choices
 from rest_framework import serializers
 from django.conf import settings
-from .models import Customer, Genre, Movie, MoviePoster, WatchList
+from .models import Customer, Genre, Movie, MoviePoster, SubcriptionType, WatchList
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -43,10 +45,24 @@ class AddMovieSerializer(serializers.ModelSerializer):
         fields = ["title", "genre", "imdbRating", "description", "releaseDate"]
 
 
+class SubscriptionTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubcriptionType
+        fields = ["plan", "monthly_price", "video_quality", "resolution", "devices"]
+
+
 class CustomerSerializer(serializers.ModelSerializer):
+    subscription = SubscriptionTypeSerializer(read_only=True)
+
     class Meta:
         model = Customer
-        fields = ["user_id", "subscriptionType"]
+        fields = ["user_id", "subscription"]
+
+
+class AddCustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ["user_id", "subscription"]
 
 
 class WatchListSerializer(serializers.ModelSerializer):

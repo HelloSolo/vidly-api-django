@@ -1,3 +1,6 @@
+from decimal import Subnormal
+from email.policy import default
+from random import choices
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -41,24 +44,21 @@ class MoviePoster(models.Model):
     image = models.ImageField(upload_to="movie/images")
 
 
+class SubcriptionType(models.Model):
+    plan = models.CharField(max_length=255)
+    monthly_price = models.PositiveBigIntegerField()
+    video_quality = models.CharField(max_length=255)
+    resolution = models.CharField(max_length=255)
+    devices = models.CharField(default="Mobile", max_length=255)
+
+    def __str__(self):
+        return self.plan
+
+
 class Customer(models.Model):
-    GOLD = "GD"
-    SILVER = "SL"
-    BRONZE = "BR"
-    FREE = "FR"
-
-    SUBSCRIPTION_TYPE_CHOICES = [
-        (SILVER, "silver"),
-        (GOLD, "gold"),
-        (BRONZE, "bronze"),
-        (FREE, "free"),
-    ]
-
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    subscriptionType = models.CharField(
-        max_length=2,
-        choices=SUBSCRIPTION_TYPE_CHOICES,
-        default=FREE,
+    subscription = models.ForeignKey(
+        SubcriptionType, on_delete=models.CASCADE, default=1
     )
 
     def first_name(self):

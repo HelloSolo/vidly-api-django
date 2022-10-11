@@ -9,6 +9,7 @@ from .models import Customer, Movie, Genre, MoviePoster, WatchList
 from .paginate import DefaultPagination
 from .permissions import Is_AdminUserOrReadOnly
 from .serializers import (
+    AddCustomerSerializer,
     AddMovieSerializer,
     CustomerSerializer,
     MoviePosterSerializer,
@@ -59,14 +60,19 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [IsAdminUser]
 
+    def get_serializer_class(self):
+        if self.request.method == "GET":
+            return CustomerSerializer
+        return AddCustomerSerializer
+
     @action(detail=False, methods=["GET", "PUT"], permission_classes=[IsAuthenticated])
     def me(self, request):
         customer = Customer.objects.get(user_id=request.user.id)
         if request.method == "GET":
-            serializer = CustomerSerializer(customer)
+            serializer = AddCustomerSerializer(customer)
             return Response(serializer.data)
         elif request.method == "PUT":
-            serializer = CustomerSerializer(customer, data=request.data)
+            serializer = AddCustomerSerializer(customer, data=request.data)
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
