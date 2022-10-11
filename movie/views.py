@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from .filter import MovieFilter
-from .models import Customer, Movie, Genre, MoviePoster, WatchList
+from .models import Customer, Movie, Genre, MoviePoster, SubcriptionType, WatchList
 from .paginate import DefaultPagination
 from .permissions import Is_AdminUserOrReadOnly
 from .serializers import (
@@ -15,6 +15,7 @@ from .serializers import (
     MoviePosterSerializer,
     MovieSerializer,
     GenreSerializer,
+    SubscriptionTypeSerializer,
     WatchListSerializer,
     AddWatchListSerializer,
 )
@@ -53,6 +54,11 @@ class MoviePosterViewSet(ModelViewSet):
 class GenreViewSet(ReadOnlyModelViewSet):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
+
+
+class SubscriptionTypeViewSet(ReadOnlyModelViewSet):
+    queryset = SubcriptionType.objects.all()
+    serializer_class = SubscriptionTypeSerializer
 
 
 class CustomerViewSet(ModelViewSet):

@@ -4,6 +4,7 @@ from .views import (
     GenreViewSet,
     MoviePosterViewSet,
     MovieViewSet,
+    SubscriptionTypeViewSet,
     WatchListViewSet,
 )
 from rest_framework_nested.routers import DefaultRouter, NestedDefaultRouter
@@ -12,6 +13,7 @@ from rest_framework_nested.routers import DefaultRouter, NestedDefaultRouter
 router = DefaultRouter()
 router.register("movies", MovieViewSet, basename="movie")
 router.register("genres", GenreViewSet)
+router.register("subscriptions", SubscriptionTypeViewSet)
 router.register("customers", CustomerViewSet, basename="customer")
 router.register("watchlists", WatchListViewSet, basename="watchlist")
 
