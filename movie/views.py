@@ -66,16 +66,11 @@ class CustomerViewSet(ModelViewSet):
     serializer_class = CustomerSerializer
     permission_classes = [IsAdminUser]
 
-    def get_serializer_class(self):
-        if self.request.method == "GET":
-            return CustomerSerializer
-        return AddCustomerSerializer
-
     @action(detail=False, methods=["GET", "PUT"], permission_classes=[IsAuthenticated])
     def me(self, request):
         customer = Customer.objects.get(user_id=request.user.id)
         if request.method == "GET":
-            serializer = AddCustomerSerializer(customer)
+            serializer = CustomerSerializer(customer)
             return Response(serializer.data)
         elif request.method == "PUT":
             serializer = AddCustomerSerializer(customer, data=request.data)
