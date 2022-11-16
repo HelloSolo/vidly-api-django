@@ -2,7 +2,15 @@ from django.contrib import admin
 from django.db.models import Count
 from django.urls import reverse
 from django.utils.html import format_html, urlencode
-from .models import Customer, Movie, Genre, MoviePoster, WatchList, SubcriptionType
+from .models import (
+    Customer,
+    Movie,
+    Genre,
+    MoviePoster,
+    WatchList,
+    SubcriptionType,
+    VideoLink,
+)
 
 # Register your models here.
 
@@ -17,11 +25,16 @@ class ImagesInline(admin.TabularInline):
         return ""
 
 
+class VideoLinkInline(admin.TabularInline):
+    model = VideoLink
+    extra = 1
+
+
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     actions = ["clear_stock"]
     autocomplete_fields = ["genre"]
-    inlines = [ImagesInline]
+    inlines = [ImagesInline, VideoLinkInline]
     list_display = [
         "title",
         "genre",
