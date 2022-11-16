@@ -1,6 +1,3 @@
-from decimal import Subnormal
-from email.policy import default
-from random import choices
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
@@ -42,6 +39,13 @@ class Movie(models.Model):
 class MoviePoster(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="movie/images")
+
+
+class VideoLink(models.Model):
+    movie = models.ForeignKey(
+        Movie, on_delete=models.CASCADE, related_name="video_link"
+    )
+    link = models.URLField()
 
 
 class SubcriptionType(models.Model):
