@@ -83,4 +83,9 @@ class WatchListAdmin(admin.ModelAdmin):
     list_display = ["user_id", "user", "movie"]
 
 
+@admin.register(VideoLink)
+class VideoLinkAdmin(admin.ModelAdmin):
+    list_display = ["id", "link", "movie_id"]
+
+
 # Comeback to edit how ojects are saved in this model

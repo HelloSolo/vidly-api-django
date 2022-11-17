@@ -42,9 +42,7 @@ class MoviePoster(models.Model):
 
 
 class VideoLink(models.Model):
-    movie = models.ForeignKey(
-        Movie, on_delete=models.CASCADE, related_name="video_link"
-    )
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="links")
     link = models.URLField()
 
 

@@ -1,8 +1,13 @@
-from dataclasses import fields
-from random import choices
 from rest_framework import serializers
-from django.conf import settings
-from .models import Customer, Genre, Movie, MoviePoster, SubcriptionType, WatchList
+from .models import (
+    Customer,
+    Genre,
+    Movie,
+    MoviePoster,
+    SubcriptionType,
+    WatchList,
+    VideoLink,
+)
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -21,9 +26,16 @@ class MoviePosterSerializer(serializers.ModelSerializer):
         return MoviePoster.objects.create(movie_id=movie_id, **validated_data)
 
 
+class VideoLinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VideoLink
+        fields = ["id", "link"]
+
+
 class MovieSerializer(serializers.ModelSerializer):
     genre = GenreSerializer()
     images = MoviePosterSerializer(many=True, read_only=True)
+    links = VideoLinkSerializer(many=True, read_only=True)
 
     class Meta:
         model = Movie
@@ -36,6 +48,7 @@ class MovieSerializer(serializers.ModelSerializer):
             "releaseDate",
             "images",
             "promoted",
+            "links",
         ]
 
 
