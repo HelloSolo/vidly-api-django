@@ -90,7 +90,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "vidly",
-        "HOST": "localhost",
+        "HOST": "127.0.0.1",
         "USER": "root",
         "PASSWORD": "Underw@ter",
     }
