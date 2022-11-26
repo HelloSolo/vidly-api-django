@@ -2,3 +2,5 @@ env
 playground
 *.pyc
 *.jpg
+*.webp
+*.jpeg
