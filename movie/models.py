@@ -71,4 +71,4 @@ class WatchList(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user"
     )
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
