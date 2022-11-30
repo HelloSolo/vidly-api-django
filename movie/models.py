@@ -59,9 +59,7 @@ class SubcriptionType(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    subscription = models.ForeignKey(
-        SubcriptionType, on_delete=models.CASCADE, default=1
-    )
+    subscription = models.ForeignKey(SubcriptionType, on_delete=models.PROTECT)
 
     def first_name(self):
         return self.user.first_name
