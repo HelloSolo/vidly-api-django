@@ -80,7 +80,7 @@ class SubcriptionTypeAdmin(admin.ModelAdmin):
 
 @admin.register(WatchList)
 class WatchListAdmin(admin.ModelAdmin):
-    list_display = ["user_id", "user", "movie"]
+    list_display = ["id", "user_id", "user", "movie"]
 
 
 @admin.register(VideoLink)
