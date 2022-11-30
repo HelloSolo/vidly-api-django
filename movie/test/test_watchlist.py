@@ -1,87 +1,50 @@
 from core.models import User
-from django.db import transaction
-from ..models import SubcriptionType, Movie, Genre
+from movie.models import Movie, WatchList, SubcriptionType
+from model_bakery import baker
 from rest_framework import status
-from rest_framework.test import APIClient, APITestCase
 import pytest
 
 
 @pytest.fixture
-def database_setup():
-    @transaction.atomic
-    def queries(username, plan):
-        SubcriptionType.objects.create(
-            plan=plan, monthly_price=1, resolution=" ", video_quality=" ", devices=""
-        )
-        user = User.objects.create(username=username, password="loophole")
-        genre = Genre.objects.create(name=" ")
-        movie = Movie.objects.create(title=" ", genre_id=genre._id, imdbRating=7.8)
+def create_watchlist():
+    def do_create_watchlist(movie, client):
+        return client.post("/api/watchlists/", movie)
 
-        return user, movie
-
-    return queries
+    return do_create_watchlist
 
 
 @pytest.mark.django_db
-class TestCreateWatchlist:
-    # @pytest.mark.skip
-    def test_if_user_is_anonymous_returns_401(self):
-        client = APIClient()
-        response = client.post("/api/watchlists/", {"movie": 1})
+class TestAddMovieToWatchlist:
+    def test_if_user_is_anonymous_returns_401(self, api_client, create_watchlist):
+        movie = baker.make(Movie)
+        response = create_watchlist({"movie": movie._id}, api_client)
 
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
-    # @pytest.mark.skip
-    def test_if_data_is_invalid_returns_400(self, database_setup):
-        (user, _) = database_setup("b", "d")
-
-        client = APIClient()
-        client.force_authenticate(user=user)
-        response = client.post("/api/watchlists/", {"movie": ""})
+    def test_if_data_is_invalid_returns_400(self, authenticate, create_watchlist):
+        response = create_watchlist({"movie": "a"}, authenticate)
 
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert response.data["movie"] is not None
 
-    @pytest.mark.skip
-    def test_if_user_is_authenticated_returns_201(self, database_setup):
-        (user, movie) = database_setup("a", "c")
+    def test_if_user_is_authenticated_returns_201(self, authenticate, create_watchlist):
+        movie = baker.make(Movie)
 
-        client = APIClient()
-        client.force_authenticate(user=user)
-        response = client.post("/api/watchlists/", {"movie": movie._id})
+        response = create_watchlist({"movie": movie._id}, authenticate)
 
         assert response.status_code == status.HTTP_201_CREATED
         assert response.data["movie"] > 0
 
 
-# =============================================================Django Test==============================================================
-# class CreateWatchlistTest(APITestCase, APIClient):
-#     def test_if_user_is_anonymous_returns_401(self):
-#         response = self.client.post("/api/watchlists/", {"movie": 1})
+@pytest.mark.django_db
+class TestDeleteMovieFromWatch:
+    def test_delete_movie_from_watchlist(self, api_client):
+        baker.make(SubcriptionType, plan="Free")
+        client = api_client
+        user = baker.make(User)
 
-#         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        client.force_authenticate(user=user)
+        watchlist = baker.make(WatchList, user=user)
+        response = client.delete(f"/api/watchlists/{watchlist.id}/")
 
-#     def test_if_user_is_authenticated_returns_201(self):
-#         SubcriptionType.objects.create(
-#             plan=" ", monthly_price=1, resolution=" ", video_quality=" ", devices=""
-#         )
-#         genre = Genre.objects.create(name=" ")
-#         movie = Movie.objects.create(title=" ", genre_id=genre._id, imdbRating=7.8)
-#         user = User.objects.create(username="user1@domain.com", password="loophole")
-
-#         self.client.force_authenticate(user=user)
-#         response = self.client.post("/api/watchlists/", {"movie": movie._id})
-
-#         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-#     def test_if_data_is_invalid_returns_400(self):
-#         SubcriptionType.objects.create(
-#             plan=" ", monthly_price=1, resolution=" ", video_quality=" ", devices=""
-#         )
-#         user = User.objects.create(username="user2@domain.com", password="loophole")
-
-#         client = APIClient()
-#         client.force_authenticate(user=user)
-#         response = client.post("/api/watchlists/", {"movie_id": ""})
-
-#         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        assert response.status_code == status.HTTP_204_NO_CONTENT
