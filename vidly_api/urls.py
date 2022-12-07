@@ -24,6 +24,7 @@ admin.site.index_title = "Admin"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include("core.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("api/", include("movie.urls")),
     path("auth/", include("djoser.urls")),
