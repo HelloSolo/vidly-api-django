@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "rest_framework",
     "djoser",
+    "fontawesomefree",
     "playground",
     "movie",
     "core",
