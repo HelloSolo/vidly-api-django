@@ -152,8 +152,6 @@ DJOSER = {
     }
 }
 
-CELERY_BROKER_URL = "redis://localhost:6379/1"
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
