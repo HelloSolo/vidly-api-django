@@ -6,3 +6,4 @@ playground
 *.jpeg
 /media/
 /static/
+general.log
