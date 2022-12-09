@@ -1,0 +1,9 @@
+celery==5.2.7
+Django==4.1.4
+django_filter==22.1
+djoser==2.1.0
+drf_nested_routers==0.93.4
+locustio==0.999
+model_bakery==1.9.0
+pytest==7.2.0
+rest_framework_nested==0.1.0
