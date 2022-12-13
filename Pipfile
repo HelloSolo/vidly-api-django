@@ -22,6 +22,8 @@ whitenoise = "*"
 gunicorn = "*"
 django-storages = "*"
 azure-mgmt-resource = "*"
+azure-mgmt-storage = "*"
+azure-storage-blob = "*"
 
 [dev-packages]
 autopep8 = "*"

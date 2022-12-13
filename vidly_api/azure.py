@@ -7,8 +7,6 @@ AZURE_CONTAINER = os.getenv("AZ_STORAGE_CONTAINER")
 AZURE_ACCOUNT_KEY = os.getenv("AZ_STORAGE_KEY")
 
 
-ALLOWED_HOSTS = []
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",

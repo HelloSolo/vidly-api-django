@@ -83,6 +83,9 @@ DEBUG = True
 
 SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
 
+ALLOWED_HOSTS = ["*"]
+
+######### MySql ###############
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -92,6 +95,17 @@ DATABASES = {
         "PASSWORD": "Underw@ter",
     }
 }
+
+######### POSTGRES ################
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "vidly",
+#         "HOST": "127.0.0.1",
+#         "USER": "root",
+#         "PASSWORD": "Underw@ter",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -142,6 +156,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom Configurations
 INTERNAL_IPS = ["127.0.0.1"]
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
