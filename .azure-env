@@ -37,7 +37,7 @@ POSTGRES_HOST='vidly-db-server.postgres.database.azure.com'
 APP_DB_NAME='vidly-db'
 
 # The production settings module. `tutorial.azure` is the example provided.
-DJANGO_SETTINGS_MODULE='vidly_api.settings'
+DJANGO_SETTINGS_MODULE='vidly_api.azure'
 
 # Azure Storages Account Name, Container Name and Key for staticfiles.
 # Once these are set you can run collectstatic to push the staticfiles.

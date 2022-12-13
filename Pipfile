@@ -20,6 +20,8 @@ celery = "*"
 fontawesomefree = "*"
 whitenoise = "*"
 gunicorn = "*"
+django-storages = "*"
+azure-mgmt-resource = "*"
 
 [dev-packages]
 autopep8 = "*"
