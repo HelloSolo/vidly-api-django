@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "djoser",
     "fontawesomefree",
-    "playground",
+    # "playground",
     "movie",
     "core",
     "liked",
