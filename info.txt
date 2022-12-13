@@ -1,0 +1,241 @@
+
+#################### Creating PostgreSQL server... #############################
+Checking the existence of the resource group 'appsvc_linux_centralus'...
+Resource group 'appsvc_linux_centralus' exists ? : True 
+Creating postgres Server 'vidly-db-server' in group 'appsvc_linux_centralus'...
+Your server 'vidly-db-server' is using sku 'GP_Gen5_2' (Paid Tier). Please refer to https://aka.ms/postgres-pricing  f
+or pricing details
+Make a note of your password. If you forget, you would have to reset your password with 'az postgres server update -n 
+vidly-db-server -g appsvc_linux_centralus -p <new-password>'.
+{
+  "additionalProperties": {},
+  "administratorLogin": "david_admin",
+  "byokEnforcement": "Disabled",
+  "connectionString": "postgres://david_admin%40vidly-db-server:Underw@ter@vidly-db-server.postgres.database.azure.com
+/postgres?sslmode=require",
+  "earliestRestoreDate": "2022-12-12T13:01:50.547000+00:00",
+  "fullyQualifiedDomainName": "vidly-db-server.postgres.database.azure.com",
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft
+.DBforPostgreSQL/servers/vidly-db-server",
+  "identity": null,
+  "infrastructureEncryption": "Disabled",
+  "location": "centralus",
+  "masterServerId": "",
+  "minimalTlsVersion": "TLSEnforcementDisabled",
+  "name": "vidly-db-server",
+  "password": "Underw@ter",
+  "privateEndpointConnections": [],
+  "publicNetworkAccess": "Enabled",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
+  "resourceGroup": "appsvc_linux_centralus",
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 2,
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "additionalProperties": {},
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageAutogrow": "Enabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforPostgreSQL/servers",
+  "userVisibleState": "Ready",
+  "version": "11"
+}
+Create firewall rules? [y/n]: y
+Allowing access from Azure...
+{
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft
+.DBforPostgreSQL/servers/vidly-db-server/firewallRules/AllowAllAzureIPs",
+  "name": "AllowAllAzureIPs",
+  "resourceGroup": "appsvc_linux_centralus",
+  "startIpAddress": "0.0.0.0",
+  "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
+}
+Allowing access from local IP...
+{
+  "endIpAddress": "154.118.31.51",
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft
+.DBforPostgreSQL/servers/vidly-db-server/firewallRules/AllowMyIP",
+  "name": "AllowMyIP",
+  "resourceGroup": "appsvc_linux_centralus",
+  "startIpAddress": "154.118.31.51",
+  "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
+}
+
+
+####################### Creating App DB... ##########################
+{
+  "charset": "UTF8",
+  "collation": "English_United States.1252",
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft.DB
+forPostgreSQL/servers/vidly-db-server/databases/vidly-db",
+  "name": "vidly-db",
+  "resourceGroup": "appsvc_linux_centralus",
+  "type": "Microsoft.DBforPostgreSQL/servers/databases"
+}
+Getting access details...
+{
+  "administratorLogin": "david_admin",
+  "byokEnforcement": "Disabled",
+  "earliestRestoreDate": "2022-12-12T13:01:50.547000+00:00",
+  "fullyQualifiedDomainName": "vidly-db-server.postgres.database.azure.com",
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft.DB
+forPostgreSQL/servers/vidly-db-server",
+  "identity": null,
+  "infrastructureEncryption": "Disabled",
+  "location": "centralus",
+  "masterServerId": "",
+  "minimalTlsVersion": "TLSEnforcementDisabled",
+  "name": "vidly-db-server",
+  "privateEndpointConnections": [],
+  "publicNetworkAccess": "Enabled",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
+  "resourceGroup": "appsvc_linux_centralus",
+  "sku": {
+    "capacity": 2,
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageAutogrow": "Enabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforPostgreSQL/servers",
+  "userVisibleState": "Ready",
+  "version": "11"
+}
+
+###################### Storage Account ##########################
+{
+  "accessTier": "Hot",
+  "allowBlobPublicAccess": true,
+  "allowCrossTenantReplication": null,
+  "allowSharedKeyAccess": null,
+  "allowedCopyScope": null,
+  "azureFilesIdentityBasedAuthentication": null,
+  "blobRestoreStatus": null,
+  "creationTime": "2022-12-13T08:12:16.988364+00:00",
+  "customDomain": null,
+  "defaultToOAuthAuthentication": null,
+  "dnsEndpointType": null,
+  "enableHttpsTrafficOnly": true,
+  "enableNfsV3": null,
+  "encryption": {
+    "encryptionIdentity": null,
+    "keySource": "Microsoft.Storage",
+    "keyVaultProperties": null,
+    "requireInfrastructureEncryption": null,
+    "services": {
+      "blob": {
+        "enabled": true,
+        "keyType": "Account",
+        "lastEnabledTime": "2022-12-13T08:12:17.082064+00:00"
+      },
+      "file": {
+        "enabled": true,
+        "keyType": "Account",
+        "lastEnabledTime": "2022-12-13T08:12:17.082064+00:00"
+      },
+      "queue": null,
+      "table": null
+    }
+  },
+  "extendedLocation": null,
+  "failoverInProgress": null,
+  "geoReplicationStats": null,
+  "id": "/subscriptions/2c594dfe-a6e2-4846-88f7-3d1816541147/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Storage/storag
+eAccounts/vidlystorage",
+  "identity": null,
+  "immutableStorageWithVersioning": null,
+  "isHnsEnabled": null,
+  "isLocalUserEnabled": null,
+  "isSftpEnabled": null,
+  "keyCreationTime": {
+    "key1": "2022-12-13T08:12:17.066460+00:00",
+    "key2": "2022-12-13T08:12:17.066460+00:00"
+  },
+  "keyPolicy": null,
+  "kind": "StorageV2",
+  "largeFileSharesState": null,
+  "lastGeoFailoverTime": null,
+  "location": "centralus",
+  "minimumTlsVersion": "TLS1_0",
+  "name": "vidlystorage",
+  "networkRuleSet": {
+    "bypass": "AzureServices",
+    "defaultAction": "Allow",
+    "ipRules": [],
+    "resourceAccessRules": null,
+    "virtualNetworkRules": []
+  },
+  "primaryEndpoints": {
+    "blob": "https://vidlystorage.blob.core.windows.net/",
+    "dfs": "https://vidlystorage.dfs.core.windows.net/",
+    "file": "https://vidlystorage.file.core.windows.net/",
+    "internetEndpoints": null,
+    "microsoftEndpoints": null,
+    "queue": "https://vidlystorage.queue.core.windows.net/",
+    "table": "https://vidlystorage.table.core.windows.net/",
+    "web": "https://vidlystorage.z19.web.core.windows.net/"
+  },
+  "primaryLocation": "centralus",
+  "privateEndpointConnections": [],
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "appsvc_linux_centralus",
+  "routingPreference": null,
+  "sasPolicy": null,
+  "secondaryEndpoints": {
+    "blob": "https://vidlystorage-secondary.blob.core.windows.net/",
+    "dfs": "https://vidlystorage-secondary.dfs.core.windows.net/",
+    "file": null,
+    "internetEndpoints": null,
+    "microsoftEndpoints": null,
+    "queue": "https://vidlystorage-secondary.queue.core.windows.net/",
+    "table": "https://vidlystorage-secondary.table.core.windows.net/",
+    "web": "https://vidlystorage-secondary.z19.web.core.windows.net/"
+  },
+  "secondaryLocation": "eastus2",
+  "sku": {
+    "name": "Standard_RAGRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": "available",
+  "storageAccountSkuConversionStatus": null,
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}
+
+############ Storage Key ####################
+[
+  {
+    "creationTime": "2022-12-13T08:12:17.066460+00:00",
+    "keyName": "key1",
+    "permissions": "FULL",
+    "value": "wpnVdxd7TVfNRydHQNMGsuK57voT9QCQuRo8jT0N5VHUNr3jXpJL/fkv7wGtwMWc+ugXe2Fn0EIt+ASt/sjO2Q=="
+  },
+  {
+    "creationTime": "2022-12-13T08:12:17.066460+00:00",
+    "keyName": "key2",
+    "permissions": "FULL",
+    "value": "QX7ZAnvKXWuKLhf78VwlE1+nc6MbnndnRg5Kiq64k817daybqDT0w/fIRdhMavh2PBaMSSXMh7KX+AStAbzu2Q=="
+  }
+]
