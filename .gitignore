@@ -5,5 +5,4 @@ playground
 *.webp
 *.jpeg
 /media/
-/static/
 general.log
