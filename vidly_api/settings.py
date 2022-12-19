@@ -87,7 +87,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 ######## MySql ###############
-DATABASESProd = {
+DATABASESDev = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "vidly",
@@ -110,7 +110,7 @@ DATABASESProd = {
 # }
 
 ######### Production Mysql ###############
-DATABASESDev = {
+DATABASESProd = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "railway",
