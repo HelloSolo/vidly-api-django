@@ -16,10 +16,10 @@
 # - If using the VS Code App Service extension to create your app,
 #   use the values it provides
 AZ_GROUP='appsvc_linux_centralus'
-AZ_LOCATION='centralus'
+AZ_LOCATION='Central US'
 
 # The name you choose for your App Service application.
-APP_SERVICE_APP_NAME='vidly-django'
+APP_SERVICE_APP_NAME='vidly-api-django'
 
 # Server Name, Admin User and Admin Password for creating the Azure
 # PostgreSQL server.
@@ -30,7 +30,7 @@ POSTGRES_ADMIN_PASSWORD='Underw@ter'
 # The Azure PostgreSQL server host.
 # This will not be available until after creating the database server.
 # (Will be output at end if running `./bin/createdb.py`)
-POSTGRES_HOST='vidly-db-server.postgres.database.azure.com'
+POSTGRES_HOST=''
 
 # The application DB name you want to use.
 # `./bin/createdb.py` will offer to create this db after creating the server.
@@ -42,7 +42,7 @@ DJANGO_SETTINGS_MODULE='vidly_api.azure'
 # Azure Storages Account Name, Container Name and Key for staticfiles.
 # Once these are set you can run collectstatic to push the staticfiles.
 AZ_STORAGE_ACCOUNT_NAME='vidlystorage'
-AZ_STORAGE_KEY='wpnVdxd7TVfNRydHQNMGsuK57voT9QCQuRo8jT0N5VHUNr3jXpJL/fkv7wGtwMWc+ugXe2Fn0EIt+ASt/sjO2Q=='
+AZ_STORAGE_KEY=''
 AZ_STORAGE_CONTAINER='vidlycontainer'
 
 
