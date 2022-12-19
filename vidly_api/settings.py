@@ -79,22 +79,23 @@ WSGI_APPLICATION = "vidly_api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DEBUG = True
+DEBUG = False
 
 SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
 
 ALLOWED_HOSTS = ["*"]
 
-######### MySql ###############
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "vidly",
-#         "HOST": "127.0.0.1",
-#         "USER": "root",
-#         "PASSWORD": "Underw@ter",
-#     }
-# }
+
+######## MySql ###############
+DATABASESProd = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "vidly",
+        "HOST": "127.0.0.1",
+        "USER": "root",
+        "PASSWORD": "Underw@ter",
+    }
+}
 
 ######### Production Postgres ###############
 # DATABASES = {
@@ -109,7 +110,7 @@ ALLOWED_HOSTS = ["*"]
 # }
 
 ######### Production Mysql ###############
-DATABASES = {
+DATABASESDev = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "railway",
@@ -119,6 +120,11 @@ DATABASES = {
         "PORT": "7862",
     }
 }
+
+if DEBUG:
+    DATABASES = DATABASESDev
+else:
+    DATABASES = DATABASESProd
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -156,6 +162,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # For serving media files
 MEDIA_URL = "/media/"
