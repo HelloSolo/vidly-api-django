@@ -23,7 +23,7 @@ gunicorn = "*"
 django-storages = "*"
 azure-mgmt-resource = "*"
 azure-mgmt-storage = "*"
-azure-storage-blob = "*"
+python-dotenv = "==0.21.0"
 
 [dev-packages]
 autopep8 = "*"

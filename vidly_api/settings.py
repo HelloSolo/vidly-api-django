@@ -86,26 +86,39 @@ SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4
 ALLOWED_HOSTS = ["*"]
 
 ######### MySql ###############
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "vidly",
-        "HOST": "127.0.0.1",
-        "USER": "root",
-        "PASSWORD": "Underw@ter",
-    }
-}
-
-######### POSTGRES ################
 # DATABASES = {
 #     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
+#         "ENGINE": "django.db.backends.mysql",
 #         "NAME": "vidly",
 #         "HOST": "127.0.0.1",
 #         "USER": "root",
 #         "PASSWORD": "Underw@ter",
 #     }
 # }
+
+######### Production Postgres ###############
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "railway",
+#         "HOST": "containers-us-west-161.railway.app",
+#         "USER": "postgres",
+#         "PASSWORD": "n9X0UF4EjASv4m2EU4E5",
+#         "PORT": "7195",
+#     }
+# }
+
+######### Production Mysql ###############
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "railway",
+        "HOST": "containers-us-west-172.railway.app",
+        "USER": "root",
+        "PASSWORD": "XrL6dzrgdKAzmCQnnME5",
+        "PORT": "7862",
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
