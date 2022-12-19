@@ -79,7 +79,7 @@ WSGI_APPLICATION = "vidly_api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DEBUG = False
+DEBUG = True
 
 SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
 
@@ -122,7 +122,7 @@ DATABASESProd = {
 }
 
 if DEBUG:
-    DATABASES = DATABASESDev
+    DATABASES = DATABASESProd
 else:
     DATABASES = DATABASESProd
 
