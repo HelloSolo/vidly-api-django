@@ -76,44 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "vidly_api.wsgi.application"
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DEBUG = os.getenv("DEBUG")
-
-SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
-
-ALLOWED_HOSTS = ["*"]
-
-
-######## MySql ###############
-DATABASESDev = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "vidly",
-        "HOST": "127.0.0.1",
-        "USER": "root",
-        "PASSWORD": "Underw@ter",
-    }
-}
-
-######### Production Mysql ###############
-DATABASESProd = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "railway",
-        "HOST": "containers-us-west-172.railway.app",
-        "USER": "root",
-        "PASSWORD": "XrL6dzrgdKAzmCQnnME5",
-        "PORT": "7862",
-    }
-}
-
-if DEBUG:
-    DATABASES = DATABASESDev
-else:
-    DATABASES = DATABASESProd
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
