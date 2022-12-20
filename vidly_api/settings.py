@@ -79,7 +79,7 @@ WSGI_APPLICATION = "vidly_api.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG")
 
 SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
 
@@ -97,18 +97,6 @@ DATABASESDev = {
     }
 }
 
-######### Production Postgres ###############
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "railway",
-#         "HOST": "containers-us-west-161.railway.app",
-#         "USER": "postgres",
-#         "PASSWORD": "n9X0UF4EjASv4m2EU4E5",
-#         "PORT": "7195",
-#     }
-# }
-
 ######### Production Mysql ###############
 DATABASESProd = {
     "default": {
@@ -122,7 +110,7 @@ DATABASESProd = {
 }
 
 if DEBUG:
-    DATABASES = DATABASESProd
+    DATABASES = DATABASESDev
 else:
     DATABASES = DATABASESProd
 
