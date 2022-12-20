@@ -14,3 +14,14 @@ DATABASES = {
         "PASSWORD": "Underw@ter",
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "railway",
+#         "HOST": "containers-us-west-172.railway.app",
+#         "USER": "root",
+#         "PASSWORD": "XrL6dzrgdKAzmCQnnME5",
+#         "PORT": "7862",
+#     }
+# }
