@@ -1,10 +1,9 @@
 from .common import *
 
+
 DEBUG = True
 
 SECRET_KEY = "django-insecure-ma^cg$qf9ly-^4&eomakqqu*b6)%y3^^mw(**ct*hfbisctld4"
-
-ALLOWED_HOSTS = ["web-production-43a4.up.railway.app"]
 
 DATABASES = {
     "default": {
