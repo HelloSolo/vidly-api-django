@@ -4,6 +4,5 @@ env
 *.webp
 *.jpeg
 /media/
-/static/
 general.log
 .env
