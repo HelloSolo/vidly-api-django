@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "vidly-api"
+version = "0.1.0"
+description = "backend server of vidly"
+authors = ["HelloSolo <davidalimi148@gmail.com>"]
+readme = "README.md"
+packages = [{include = "vidly_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+gunicorn = "^20.1.0"
+whitenoise = "^6.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
