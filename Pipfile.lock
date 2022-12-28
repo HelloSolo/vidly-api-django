@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c63dece184340f1fac4351ec57f576779569bc1b0a2caeca24a99f3a587b9cde"
+            "sha256": "40e847100ac73e74774ebfa8c82840d2ff4469c241bdc9fa8f86e56869c0fbcc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -260,11 +260,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:0b223bfa55511f950ff741983d408d78d772351284c75e9f77d2b830b6b4d148",
-                "sha256:d38a4e108d2386cb9637da66a82dc8d0733caede4c83c4afdbda78af4214211b"
+                "sha256:18ba8efa36b69cfcd4b670d0fa187c6fe7506596f0ababe580e16909bcdec121",
+                "sha256:3adc285124244724a394fa9b9839cc8cd116faf7d159554c43ecdaa8cdf0b94d"
             ],
             "index": "pypi",
-            "version": "==4.1.4"
+            "version": "==3.2.16"
         },
         "django-cors-headers": {
             "hashes": [
@@ -447,7 +447,7 @@
                 "sha256:8a8a81bcf996e74fee46f0d16bd3eaa382a7eb20fd82445c3ad11f4090334116",
                 "sha256:dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version < '3.12'",
             "version": "==4.13.0"
         },
         "itypes": {
@@ -1350,11 +1350,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:0b223bfa55511f950ff741983d408d78d772351284c75e9f77d2b830b6b4d148",
-                "sha256:d38a4e108d2386cb9637da66a82dc8d0733caede4c83c4afdbda78af4214211b"
+                "sha256:18ba8efa36b69cfcd4b670d0fa187c6fe7506596f0ababe580e16909bcdec121",
+                "sha256:3adc285124244724a394fa9b9839cc8cd116faf7d159554c43ecdaa8cdf0b94d"
             ],
             "index": "pypi",
-            "version": "==4.1.4"
+            "version": "==3.2.16"
         },
         "docopt": {
             "hashes": [
@@ -1690,7 +1690,7 @@
                 "sha256:8a8a81bcf996e74fee46f0d16bd3eaa382a7eb20fd82445c3ad11f4090334116",
                 "sha256:dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version < '3.12'",
             "version": "==4.13.0"
         },
         "iniconfig": {

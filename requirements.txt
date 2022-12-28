@@ -75,7 +75,6 @@ pathspec==0.10.2
 pexpect==4.8.0
 Pillow==9.3.0
 pipreqs==0.4.11
-pkg_resources==0.0.0
 pkginfo==1.9.2
 platformdirs==2.6.0
 pluggy==1.0.0

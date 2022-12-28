@@ -4,14 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 django-debug-toolbar = "*"
 mysqlclient = "==2.1.0"
-djangorestframework = "*"
 drf-nested-routers = "*"
 django-filter = "*"
 djoser = "*"
-djangorestframework-simplejwt = "*"
 pillow = "*"
 django-cors-headers = "*"
 django-templated-mail = "*"
@@ -24,6 +21,10 @@ django-storages = "*"
 python-dotenv = "==0.21.0"
 dj-database-url = "*"
 poetry = "*"
+django = "==3.2.16"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+setuptools = "*"
 
 [dev-packages]
 autopep8 = "*"
