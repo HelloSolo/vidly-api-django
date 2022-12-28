@@ -21,10 +21,9 @@ fontawesomefree = "*"
 whitenoise = "*"
 gunicorn = "*"
 django-storages = "*"
-azure-mgmt-resource = "*"
-azure-mgmt-storage = "*"
 python-dotenv = "==0.21.0"
 dj-database-url = "*"
+poetry = "*"
 
 [dev-packages]
 autopep8 = "*"
