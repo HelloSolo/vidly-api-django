@@ -3,6 +3,5 @@ env
 *.jpg
 *.webp
 *.jpeg
-/media/
 general.log
 .env
