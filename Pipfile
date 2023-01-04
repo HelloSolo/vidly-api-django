@@ -25,6 +25,7 @@ django = "==3.2.16"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 setuptools = "*"
+psycopg2 = "*"
 
 [dev-packages]
 autopep8 = "*"
@@ -35,6 +36,7 @@ model-bakery = "*"
 locust = "*"
 pipreqs = "*"
 poetry = "*"
+mysql-connector-python = "*"
 
 [requires]
 python_version = "3.9"
