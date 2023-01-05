@@ -1,5 +1,0 @@
-(1, 'Action'),
-(2, 'Thriller'),
-(3, 'Romance'),
-(4, 'Comedy'),
-(5, 'Sci-fi'),

@@ -1,7 +1,0 @@
-env
-*.pyc
-*.jpg
-*.webp
-*.jpeg
-general.log
-.env
