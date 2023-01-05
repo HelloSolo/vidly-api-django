@@ -27,6 +27,7 @@ psycopg2 = "*"
 cloudinary = "*"
 django = "*"
 django-restframework = "*"
+poetry = "*"
 
 [dev-packages]
 autopep8 = "*"
