@@ -7,8 +7,14 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DATABASES = {"default": dj_database_url.config()}
 
-ALLOWED_HOSTS = ["web-production-6a07.up.railway.app"]
+ALLOWED_HOSTS = [os.getenv("HOSTNAME")]
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+MEDIA_URL = "/vidly/media/"
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.RawMediaCloudinaryStorage"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "vidly-storage",
+    "API_KEY": "912221361294972",
+    "API_SECRET": os.getenv("API_SECRET"),
+}

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_filters",
     "storages",
+    "cloudinary",
     "corsheaders",
     "debug_toolbar",
     "rest_framework",
