@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "vidly_api_django"}]
 
 [tool.poetry.dependencies]
-python = "3.9"
+python = "^3.9"
 amqp = "5.1.1"
 asgiref = "3.6.0"
 async-timeout = "4.0.2"
