@@ -28,6 +28,8 @@ cloudinary = "*"
 django = "*"
 django-restframework = "*"
 poetry = "*"
+black = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 autopep8 = "*"
