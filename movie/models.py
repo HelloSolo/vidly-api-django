@@ -38,7 +38,7 @@ class Movie(models.Model):
 
 class MoviePoster(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="movie/images")
+    image = models.ImageField(upload_to="movieposters")
 
 
 class VideoLink(models.Model):
