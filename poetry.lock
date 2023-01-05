@@ -248,23 +248,23 @@ files = [
 
 [[package]]
 name = "cachecontrol"
-version = "0.12.12"
+version = "0.12.11"
 description = "httplib2 caching for requests"
 category = "main"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "CacheControl-0.12.12-py2.py3-none-any.whl", hash = "sha256:5986a16897cd296bdb7b86b42e0403c4ca30b9875f0e0c7c8e509b50cff115b7"},
-    {file = "CacheControl-0.12.12.tar.gz", hash = "sha256:9c2e5208ea76ebd9921176569743ddf6d7f3bb4188dbf61806f0f8fc48ecad38"},
+    {file = "CacheControl-0.12.11-py2.py3-none-any.whl", hash = "sha256:2c75d6a8938cb1933c75c50184549ad42728a27e9f6b92fd677c3151aa72555b"},
+    {file = "CacheControl-0.12.11.tar.gz", hash = "sha256:a5b9fcc986b184db101aa280b42ecdcdfc524892596f606858e0b7a8b4d9e144"},
 ]
 
 [package.dependencies]
-filelock = {version = ">=3.8.0", optional = true, markers = "extra == \"filecache\""}
+lockfile = {version = ">=0.9", optional = true, markers = "extra == \"filecache\""}
 msgpack = ">=0.5.2"
 requests = "*"
 
 [package.extras]
-filecache = ["filelock (>=3.8.0)"]
+filecache = ["lockfile (>=0.9)"]
 redis = ["redis (>=2.10.5)"]
 
 [[package]]
@@ -3351,4 +3351,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "3d64f41b76bda4152aa533be301b6c97cfcc0c3a1ac75c3b8eaee7a707271740"
+content-hash = "7d3b4f91899e26531ae812f574c30b28918cc15f8c07f455e03315cb8c5900fb"

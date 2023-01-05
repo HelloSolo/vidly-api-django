@@ -20,13 +20,13 @@ gunicorn = "*"
 django-storages = "*"
 python-dotenv = "==0.21.0"
 dj-database-url = "*"
-poetry = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 setuptools = "*"
 psycopg2 = "*"
-django = "*"
 cloudinary = "*"
+django = "*"
+django-restframework = "*"
 
 [dev-packages]
 autopep8 = "*"
@@ -36,7 +36,6 @@ pytest-watch = "*"
 model-bakery = "*"
 locust = "*"
 pipreqs = "*"
-poetry = "*"
 mysql-connector-python = "*"
 
 [requires]
