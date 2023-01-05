@@ -508,6 +508,22 @@ prompt-toolkit = "*"
 six = "*"
 
 [[package]]
+name = "cloudinary"
+version = "1.30.0"
+description = "Python and Django SDK for Cloudinary"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "cloudinary-1.30.0.tar.gz", hash = "sha256:afda8b4dcd93f500682e8f2bccda4b1a92d05b0094d5bc7ef6f6425eed13e81e"},
+]
+
+[package.dependencies]
+certifi = "*"
+six = "*"
+urllib3 = ">=1.26.5,<2"
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -3335,4 +3351,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "7141cca2b0eec573ab167d067566bdcebf81cf9ce3aaee3f5321d3e225e29875"
+content-hash = "3d64f41b76bda4152aa533be301b6c97cfcc0c3a1ac75c3b8eaee7a707271740"

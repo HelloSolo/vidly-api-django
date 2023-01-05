@@ -26,6 +26,7 @@ djangorestframework-simplejwt = "*"
 setuptools = "*"
 psycopg2 = "*"
 django = "*"
+cloudinary = "*"
 
 [dev-packages]
 autopep8 = "*"
