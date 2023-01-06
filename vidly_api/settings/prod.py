@@ -18,3 +18,5 @@ CLOUDINARY_STORAGE = {
     "API_KEY": "912221361294972",
     "API_SECRET": os.getenv("CLOUD_API_SECRET"),
 }
+
+CORS_ALLOWED_ORIGINS = ["https://vidly-392g.onrender.com"]
