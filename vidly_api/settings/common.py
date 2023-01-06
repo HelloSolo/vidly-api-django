@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "django_filters",
     "storages",
     "cloudinary",
+    "cloudinary_storage",
     "corsheaders",
     "debug_toolbar",
     "rest_framework",
