@@ -1,5 +1,11 @@
 env
 *.pyc
-static/
+static/fontawesomefree/
+static/admin/
+static/cloudinary/
+static/core/
+static/debug_toolbar/
+static/movie/
+static/rest_framework/
 general.log
 .env
