@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "91d77462e53d390c1c88d6ad9c6bb5b2135108fd0e16016f208ad74feeb9db20"
+            "sha256": "60d4528aae81e855a29c956dd35a153806cac70498c718a5f934edf35d099975"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -419,6 +419,14 @@
             ],
             "index": "pypi",
             "version": "==4.1.5"
+        },
+        "django-cloudinary-storage": {
+            "hashes": [
+                "sha256:95c855c7334141b2a485ea7eb5716de87bb6ce0d848e205debb3a3ab7bbbd49a",
+                "sha256:debd403a5f225c9d35c4af508ff4abc7fdc262129464134b60b2feeb2c44d3e1"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "django-cors-headers": {
             "hashes": [
@@ -902,6 +910,7 @@
                 "sha256:c0a454ad016ca575060802ee4d590dd912e35c122fa04e70306de3d076cce755"
             ],
             "index": "pypi",
+            "markers": "sys_platform == 'linux'",
             "version": "==0.8.0"
         },
         "jinja2": {
