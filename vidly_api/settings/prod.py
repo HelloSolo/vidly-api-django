@@ -16,5 +16,5 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.RawMediaCloudinaryStorage"
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": "vidly-storage",
     "API_KEY": "912221361294972",
-    "API_SECRET": os.getenv("API_SECRET"),
+    "API_SECRET": os.getenv("CLOUD_API_SECRET"),
 }
